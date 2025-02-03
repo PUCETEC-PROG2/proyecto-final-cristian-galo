@@ -8,7 +8,7 @@ La implementación completa de este proyecto demostrará la capacidad de los est
 
 ## Nombres de los estudiantes
 
-<Cristian Gómez> <Galo Alcivar>
+<Cristian Gómez - Galo Alcivar>
 
 ## Objetivos 
 
