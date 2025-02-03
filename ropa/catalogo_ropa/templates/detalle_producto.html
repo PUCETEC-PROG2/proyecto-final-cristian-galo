@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ producto }}{% endblock title %}
+{% block content %}
+    <div class="container mb-4">
+        <a href="{% url 'catalogo_ropa:productos' %}" class="btn btn-success"><i class="fa-solid fa-reply"></i></a>
+        <h4 class="py-4">Detalles de <strong>{{ producto | capfirst }}</strong></h4>
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <div class="card bg-secondary bg-opacity-75">
+                    <div class="card-body">
+                        <h5 class="mb-3 text-light">Características:</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-light text-dark">Precio: ${{ producto.precio }}</li>
+                            <li class="list-group-item list-group-item-light text-dark">Descripción: {{ producto.descripcion }}</li>
+                            <li class="list-group-item list-group-item-light text-dark">Talla: {{ producto.talla }}</li>
+                            <li class="list-group-item list-group-item-light text-dark">Color: {{ producto.color }}</li>
+                            <li class="list-group-item list-group-item-light text-dark">Material: {{ producto.material }}</li>
+                            <li class="list-group-item list-group-item-light text-dark">Categoría: {{ producto.categoria }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <img src="{{ producto.imagen.url }}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock content %}
