@@ -3,53 +3,81 @@
 {% block title %}Inicio{% endblock title %}
 
 {% block content %}
-        <div class="container p-3">
-                <h1 class="display-4 fw-bold">¡Bienvenido!</h1>
-                <p class="lead">Esta es tu aplicación para gestionar clientes, productos y compras de ropa confeccionada con materiales reciclados o de medio uso.</p>
-                <hr class="my-4">
-                <p>También puedes utilizar los enlaces de navegación para explorar y administrar el catálogo.</p>
-                <div class="card mb-3">
-                        <div class="row g-0">
-                                <div class="col-md-6">
-                                        <img src="{% static 'ropa.jpg' %}" class="img-fluid rounded-start" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                        <div class="card-body text-center">
-                                                <h2 class="card-title py-4">Productos</h2>
-                                                <p class="card-text mb-4">Mira los productos disponibles</p>
-                                                <a href="{% url 'catalogo_ropa:productos' %}" class="btn btn-primary p-4"><h4>Ir a Productos</h4></a>
-                                        </div>
-                                </div>
+<div class="container p-3">
+    <h1 class="display-4 fw-bold">¡Bienvenido!</h1>
+    <p class="lead">Esta es tu aplicación para gestionar clientes, productos y compras de ropa confeccionada con materiales reciclados o de medio uso.</p>
+    <hr class="my-4">
+    
+
+    <div class="alert alert-info">
+        <h3 class="fw-bold">Nuestro Compromiso con el Medio Ambiente</h3>
+        <p>
+            En nuestra empresa, estamos profundamente comprometidos con la preservación del medio ambiente. A través de la fabricación de ropa con materiales reciclados o de medio uso, buscamos reducir el impacto ambiental de la industria textil, que es una de las más contaminantes a nivel mundial.
+        </p>
+        <p>
+            Creemos que la moda puede ser sostenible y responsable, y trabajamos cada día para ofrecer productos de alta calidad sin comprometer el bienestar del planeta. Al elegir nuestros productos, no solo estás adquiriendo ropa única, sino que también estás contribuyendo a la protección del medio ambiente.
+        </p>
+    </div>
+
+    <!-- Grid con 2 columnas -->
+    <div class="row">
+        <!-- Producto -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="{% static 'ropa.jpg' %}" class="img-fluid rounded-start" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <h2 class="card-title py-4">Productos</h2>
+                            <p class="card-text mb-4">Mira los productos disponibles</p>
+                            <a href="{% url 'catalogo_ropa:productos' %}" class="btn btn-primary p-4"><h4>Ir a Productos</h4></a>
                         </div>
+                    </div>
                 </div>
-                <div class="card mb-3">
-                        <div class="row g-0">
-                                <div class="col-md-6">
-                                        <div class="card-body text-center">
-                                                <h2 class="card-title py-4">Clientes</h2>
-                                                <p class="card-text mb-4">Mira todos los clientes registrados</p>
-                                                <a href="{% url 'catalogo_ropa:clientes' %}" class="btn btn-success p-4"><h4>Ir a Clientes</h4></a>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <img src="{% static 'clientes.jpg' %}" class="img-fluid rounded-start" alt="">
-                                </div>
-                        </div>
-                </div>
-                <div class="card mb-3">
-                        <div class="row g-0">
-                                <div class="col-md-6">
-                                        <img src="{% static 'compras.webp' %}" class="img-fluid rounded-start" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                        <div class="card-body text-center">
-                                                <h2 class="card-title py-4">Compras</h2>
-                                                <p class="card-text mb-4">Mira las compras que se han realizado</p>
-                                                <a href="{% url 'catalogo_ropa:compras' %}" class="btn btn-secondary p-4"><h4>Ir a Compras</h4></a>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
+            </div>
         </div>
+
+        <!-- Clientes -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <h2 class="card-title py-4">Clientes</h2>
+                            <p class="card-text mb-4">Mira todos los clientes registrados</p>
+                            <a href="{% url 'catalogo_ropa:clientes' %}" class="btn btn-success p-4"><h4>Ir a Clientes</h4></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{% static 'clientes.jpg' %}" class="img-fluid rounded-start" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Compras -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="{% static 'compras.webp' %}" class="img-fluid rounded-start" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <h2 class="card-title py-4">Compras</h2>
+                            <p class="card-text mb-4">Mira las compras que se han realizado</p>
+                            <a href="{% url 'catalogo_ropa:compras' %}" class="btn btn-secondary p-4"><h4>Ir a Compras</h4></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock content %}
 {% block footer %}{% endblock footer %}

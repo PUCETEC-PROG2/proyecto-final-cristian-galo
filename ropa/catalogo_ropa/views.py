@@ -7,13 +7,14 @@ from .models import *
 
 from django.shortcuts import redirect, render
 
-# Importación de librería de autenticación 
+
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 
+
 def index(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render({'index': index}, request))
+    return HttpResponse(template.render({'index.html': index}, request))
 
 def productos(request):
     productos = Producto.objects.order_by('categoria')

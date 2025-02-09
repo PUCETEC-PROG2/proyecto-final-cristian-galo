@@ -13,24 +13,43 @@ class Cliente(models.Model):
     def __str__(self) -> str:
         return f'{self.apellidos} {self.nombre}'
 
-class Categoria(models.Model):
-    nombre_categoria = models.CharField(max_length=100, null=False)
+from django.db import models
 
-    def __str__(self) -> str:
+class Categoria(models.Model):
+    nombre_categoria = models.CharField(max_length=100, verbose_name='Nombre de la Categoría')
+
+    def __str__(self):
         return self.nombre_categoria
 
-class Producto(models.Model):
-    nombre_producto = models.CharField(max_length=200, null=False)
-    precio = models.DecimalField(null=False, max_digits=7, decimal_places=2)
-    descripcion = models.TextField(max_length=500, null=False)
-    talla = models.CharField(max_length=10, null=False)
-    color = models.CharField(max_length=50, null=False)
-    material = models.CharField(max_length=100, null=False)
-    categoria = models.ForeignKey(Categoria, on_delete=models.RESTRICT)
-    imagen = models.ImageField(upload_to='ropa_images', null=False)
 
-    def __str__(self) -> str:
+
+class Producto(models.Model):
+    PANTALON = 'pantalon'
+    CAMISETA = 'camiseta'
+    CAMISA = 'camisa'
+    SOMBRERO = 'sombrero'
+    CATEGORIAS = [
+        (PANTALON, 'Pantalón'),
+        (CAMISETA, 'Camiseta'),
+        (CAMISA, 'Camisa'),
+        (SOMBRERO, 'Sombrero'),
+    ]
+    
+    nombre_producto = models.CharField(max_length=200)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    descripcion = models.TextField()
+    talla = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+    material = models.CharField(max_length=100)
+    categoria = models.CharField(max_length=50, choices=CATEGORIAS, default=PANTALON)
+    imagen = models.ImageField(upload_to='productos/')
+
+    def __str__(self):
         return self.nombre_producto
+
+
+
+
 
 class Compra(models.Model):
     ciudad = models.CharField(max_length=50, null=False)
@@ -49,4 +68,4 @@ class DetalleCompra(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self) -> str:
-        return f'{self.cantidad} x {self.producto.nombre_producto}'
+        return f'{self.cantidad} x {self.producto.nombre_producto}' 
