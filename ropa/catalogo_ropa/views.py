@@ -31,6 +31,7 @@ def detalle_producto(request, id):
     }
     return render(request, 'detalle_producto.html', context)
 
+
 @login_required    
 def agregar_producto(request):
     if request.method == 'POST':

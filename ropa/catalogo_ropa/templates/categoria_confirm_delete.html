@@ -1,0 +1,6 @@
+<h2>¿Estás seguro de que deseas eliminar "{{ categoria.nombre_categoria }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'categoria_list' %}">Cancelar</a>
+</form>

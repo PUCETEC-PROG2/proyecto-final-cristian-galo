@@ -24,16 +24,6 @@ class Categoria(models.Model):
 
 
 class Producto(models.Model):
-    PANTALON = 'pantalon'
-    CAMISETA = 'camiseta'
-    CAMISA = 'camisa'
-    SOMBRERO = 'sombrero'
-    CATEGORIAS = [
-        (PANTALON, 'Pantalón'),
-        (CAMISETA, 'Camiseta'),
-        (CAMISA, 'Camisa'),
-        (SOMBRERO, 'Sombrero'),
-    ]
     
     nombre_producto = models.CharField(max_length=200)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
@@ -41,7 +31,7 @@ class Producto(models.Model):
     talla = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
     material = models.CharField(max_length=100)
-    categoria = models.CharField(max_length=50, choices=CATEGORIAS, default=PANTALON)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to='productos/')
 
     def __str__(self):
