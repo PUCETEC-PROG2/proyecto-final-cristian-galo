@@ -6,7 +6,7 @@
     <div class="row">
         
         {% for producto in productos %}
-        <div class="col-md-4 col-sm-6 col-lg-3 py-4">
+        <div class="col-md-8 col-sm-6 col-lg-4 py-8">
             <div class="card h-100">
                 <div class="card-header">
                     <h5 class="card-title text-center mt-2">{{ producto.nombre_producto }}</h5>
@@ -18,19 +18,19 @@
                     <p class="card-text">Categoría: {{ producto.categoria }}</p>
                     <div class="row">
                         <div class="col-12 col-lg-4">
-                            <a href="detalle_producto/{{ producto.id }}" class="btn btn-primary mb-1">
-                                <i class="fa-solid fa-eye"></i>
+                            <a href="detalle_producto/{{ producto.id }}" class="btn btn-primary btn-sm mb-1" title="Ver detalles del producto">
+                                <i class="fa-solid fa-eye"></i> <strong>Detalles</strong>
                             </a>
                         </div>
                         {% if user.is_authenticated %}
                         <div class="col-12 col-lg-4">
-                            <a href="editar_producto/{{ producto.id }}" class="btn btn btn-warning mb-1">
-                                <i class="fa-solid fa-pencil"></i>
+                            <a href="editar_producto/{{ producto.id }}" class="btn btn-warning btn-sm mb-1" title="Editar producto">
+                                <i class="fa-solid fa-pencil"></i> <strong>Editar</strong>
                             </a>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <a href="eliminar_producto/{{ producto.id }}" class="btn btn btn-danger" onclick="return confirmarEliminacion()">
-                                <i class="fa-solid fa-trash"></i>
+                            <a href="eliminar_producto/{{ producto.id }}" class="btn btn-danger btn-sm" onclick="return confirmarEliminacion()" title="Eliminar producto">
+                                <i class="fa-solid fa-trash"></i> <strong>Eliminar</strong>
                             </a>
                         </div>
                         {% endif %}

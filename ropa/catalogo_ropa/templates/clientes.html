@@ -6,7 +6,7 @@
             <div class="card-body ">
                 <div class="table-responsive">
                     <table class="table table-bordered align-middle cell-border compact stripe" id="tbl_clientes">
-                    <thead class="table-dark text-center">
+                    <thead class="table-primary text-center">
                         <tr class="align-middle">
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
@@ -20,7 +20,7 @@
                     </thead>
                     <tbody class="text-center align-middle">
                         {% for cliente in clientes %}
-                        <tr class="align-middle">
+                        <tr class="align-middle table-light">
                         <th scope="row">{{ cliente.id }}</th>
                         <td>{{ cliente.nombre }}</td>
                         <td>{{ cliente.apellidos }}</td>
@@ -30,12 +30,12 @@
                         {% if user.is_authenticated %}
                         <td>
                             <a href="editar_cliente/{{ cliente.id }}" class="btn btn-sm btn-warning" id="btn_editar_cliente">
-                            <i class="fa-solid fa-pencil"></i>
+                            <i class="fa-solid fa-pencil">Editar Cliente</i>
                             </a>
                         </td>
                         <td>
                             <a href="eliminar_cliente/{{ cliente.id }}" class="btn btn-sm btn-danger" onclick="return confirmarEliminacion()">
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-trash">Eliminar Cliente</i>
                             </a>
                         </td>
                         {% endif %}
@@ -65,3 +65,4 @@
     </script>
     {% endblock extra_js %}
 {% endblock content %}
+
